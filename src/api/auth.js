@@ -1,6 +1,7 @@
 import axios from 'axios'
+import { API_BASE_URL as BASE_URL } from '../config'
 
-const API_BASE_URL = '/api/auth'
+const API_BASE_URL = `${BASE_URL}/api/auth`
 
 export const authApi = {
   async register(username, password, email) {

@@ -109,6 +109,7 @@
 <script>
 import { ref, onMounted } from 'vue'
 import { imageApi } from '../api/image'
+import { API_BASE_URL } from '../config'
 
 export default {
   name: 'MyImages',
@@ -143,7 +144,7 @@ export default {
     }
 
     const getImageUrl = (image) => {
-      return image.blobUrl || `/api/images/${image.id}/download`
+      return image.blobUrl || `${API_BASE_URL}/api/images/${image.id}/download`
     }
 
     const formatDate = (dateString) => {

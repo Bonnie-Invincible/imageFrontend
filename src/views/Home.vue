@@ -80,6 +80,7 @@
 <script>
 import { ref, onMounted } from 'vue'
 import { imageApi } from '../api/image'
+import { API_BASE_URL } from '../config'
 
 export default {
   name: 'Home',
@@ -111,13 +112,14 @@ export default {
     const getImageUrl = (image) => {
       // Prefer using blobUrl directly (Azure Blob Storage URL)
       // If blobUrl is not available, use download endpoint
-      return image.blobUrl || `/api/images/${image.id}/download`
+      return image.blobUrl || `${API_BASE_URL}/api/images/${image.id}/download`
     }
 
     const handleImageError = (event, imageId) => {
       // If blobUrl fails, try using download endpoint
-      if (imageId && event.target.src !== `/api/images/${imageId}/download`) {
-        event.target.src = `/api/images/${imageId}/download`
+      const downloadUrl = `${API_BASE_URL}/api/images/${imageId}/download`
+      if (imageId && event.target.src !== downloadUrl) {
+        event.target.src = downloadUrl
       }
     }
 

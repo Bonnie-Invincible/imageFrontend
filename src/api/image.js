@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { useAuthStore } from '../stores/auth'
+import { API_BASE_URL as BASE_URL } from '../config'
 
-const API_BASE_URL = '/api/images'
+const API_BASE_URL = `${BASE_URL}/api/images`
 
 const getAuthHeaders = () => {
   const authStore = useAuthStore()
