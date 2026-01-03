@@ -28,7 +28,7 @@ export const imageApi = {
   },
 
   async getAllImages() {
-    const response = await axios.get(API_BASE_URL)
+    const response = await axios.get(`${API_BASE_URL}/all`)
     return response.data
   },
 
